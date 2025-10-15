@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DSCE</title>
+  <link rel="icon" href="{{ url_for('static', filename='logo.png') }}" type="image/x-icon">
+  <style>
+    /* ERP Login Form Styling */
+    .ERP_login-form {
+      max-width: 350px;
+      margin: 40px auto 0 auto;
+      padding: 32px 24px 24px 24px;
+      background: #f7f7f7;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.13);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      font-family: Arial, sans-serif;
+    }
+    .ERP_login-form label {
+      font-weight: bold;
+      margin-bottom: 4px;
+      color: #333;
+      text-align: left;
+    }
+    .ERP_login-form input,
+    .ERP_login-form select {
+      padding: 8px 10px;
+      border: 1px solid #bbb;
+      border-radius: 6px;
+      font-size: 1em;
+      margin-bottom: 8px;
+      background: #fff;
+      transition: border 0.2s;
+    }
+    .ERP_login-form input:focus,
+    .ERP_login-form select:focus {
+      border: 1.5px solid #0077cc;
+      outline: none;
+    }
+    .ERP_login-form button {
+      background: #0077cc;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      padding: 10px 0;
+      font-size: 1em;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 8px;
+      transition: background 0.2s;
+    }
+    .ERP_login-form button:hover {
+      background: #005fa3;
+    }
+    .ERP_login-form a {
+      color: #fff;
+      text-decoration: none;
+    }
+    .ERP_login-form a:hover {
+      text-decoration: underline;
+    }
+    /* Background */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background:white;
+    }
+
+    /* Header with logo + text */
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 15px;
+    }
+    .header-text {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 15px 0;
+    }
+    .header-text img {
+      width: 75px;
+      margin-right: 20px;
+    }
+    .header-text h1, .header-text p {
+      margin: 0;
+      font-family: 'Times New Roman', Times, serif;
+    }
+
+    .header img {
+      width: 75px;
+      margin-right: 20px;
+    }
+
+    .header h1 {
+      margin: 0;
+      font-size: 1.8em;
+      font-family: 'Times New Roman', Times, serif;
+    }
+
+    .header p {
+      margin: 2px 0 0;
+      font-size: 1em;
+      color: #222;
+      font-family: 'Times New Roman', Times, serif;
+    }
+
+    /* Navbar */
+    nav {
+      background-color: #333;
+      padding: 10px 0;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: flex-start;
+    }
+
+    nav ul li {
+      margin: 0 20px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #fff;
+      font-size: 16px;
+      transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #ffcc00;
+    }
+
+    /* Image */
+    .content img {
+      width: 300px;
+      margin: 15px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="header-text">
+    <a href="https://www.dsce.edu.in/"><img src="{{ url_for('static', filename='logo.png') }}"></a>
+    <div>
+      <h1>Dayanand Sagar College of Engineering</h1>
+      <p>Near Shavige Malleshwara Hills, Kumarswamy Layout, Bangalore</p>
+    </div>
+  </div>
+  <div style="text-align:center; margin-top:24px;">
+    <h2 style="font-family:'Times New Roman',Times,serif; color:#0077cc; letter-spacing:1px;">ERP LOGIN</h2>
+  </div>
+  {% if message %}
+    {% if 'success' in message %}
+      <div style="color: green; text-align:center; margin-bottom:10px;">{{ message }}</div>
+    {% else %}
+      <div style="color: red; text-align:center; margin-bottom:10px;">{{ message }}</div>
+    {% endif %}
+  {% endif %}
+  <form method="post" enctype="multipart/form-data" class="ERP_login-form">
+    <label for="login_type">Login Type:</label>
+    <select id="login_type" name="login_type" required>
+      <option value="student">student</option>
+      <option value="teacher">teacher</option>
+      <option value="admin">admin</option>
+    </select>
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required>
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
+    <button type="submit" style="margin-bottom:8px;">Verify</button>
+    <button type="button" onclick="window.location.href='/create_account'" style="background:#555;">Create Account</button>
+  </form>

@@ -1,0 +1,240 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DSCE</title>
+  <link rel="icon" href="{{ url_for('static', filename='logo.png') }}" type="image/x-icon">
+  <style>
+    /* Background */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background:white;
+    }
+
+    /* Header with logo + text */
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 15px;
+    }
+    .header-text {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 15px 0;
+    }
+    .header-text img {
+      width: 75px;
+      margin-right: 20px;
+    }
+    .header-text h1, .header-text p {
+      margin: 0;
+      font-family: 'Times New Roman', Times, serif;
+    }
+
+    .header img {
+      width: 75px;
+      margin-right: 20px;
+    }
+
+    .header h1 {
+      margin: 0;
+      font-size: 1.8em;
+      font-family: 'Times New Roman', Times, serif;
+    }
+
+    .header p {
+      margin: 2px 0 0;
+      font-size: 1em;
+      color: #222;
+      font-family: 'Times New Roman', Times, serif;
+    }
+
+    /* Navbar */
+    nav {
+      background-color: #333;
+      padding: 10px 0;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: flex-start;
+    }
+
+    nav ul li {
+      margin: 0 20px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #fff;
+      font-size: 16px;
+      transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #ffcc00;
+    }
+
+    /* Image */
+    .content img {
+      width: 300px;
+      margin: 15px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="header-text">
+    <a href="https://www.dsce.edu.in/"><img src="{{ url_for('static', filename='logo.png') }}"></a>
+    <div>
+      <h1>Dayanand Sagar College of Engineering</h1>
+      <p>Near Shavige Malleshwara Hills, Kumarswamy Layout, Bangalore</p>
+    </div>
+  </div>
+
+  <!-- Navigation Bar -->
+  <nav>
+    <ul>
+  <li><a href="/">Home</a></li>
+  <li><a href="/gallery">Gallery</a></li>
+  <li><a href="/results">Results</a></li>
+  <li><a href="/placements">Placements</a></li>
+  <li><a href="/admission">Admission</a></li>
+  <li><a href="/departments">Departments</a></li>
+  <li><a href="/faculties">Faculties</a></li>
+  <li><a href="/ERP_login">ERP_login</a></li>
+    </ul>
+  </nav>
+
+<div class="admission-container">
+    {% if message %}
+      <div style="background:#f8d7da;color:#721c24;padding:10px 15px;border-radius:6px;margin-bottom:15px;border:1px solid #f5c6cb;">
+        {{ message }}
+      </div>
+    {% endif %}
+    <h2>Admission</h2>
+    <hr>
+    
+    <h2>Registration</h2>
+  <form method="post" enctype="multipart/form-data" class="admission-form">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="date">Date of Birth:</label>
+      <input type="date" id="date" name="date" required>
+
+      <label for="pno">phone number:</label>
+      <input type="number" id="pno" name="pno" required>
+
+      <label for="address">address:</label>
+      <input type="text" id="address" name="address" required>
+
+      <label for="Rno">Registration No.(CET):</label>
+      <input type="number" id="Rno" name="Rno" required>
+
+      <label for="msslc">Marks in SSLC:</label>
+      <input type="number" id="msslc" name="msslc" required>
+
+      <label for="mpuc">Marks in PUC:</label>
+      <input type="number" id="mpuc" name="mpuc" required>
+      
+  <label for="mpucp">Upload PUC Marks Image:</label>
+  <input type="file" id="mpucp" name="mpucp" accept="image/*" required>
+
+      <label for="document_type">Document Type:</label>
+      <select id="document_type" name="document_type" required>
+        <option value="aadhar">Aadhar</option>
+        <option value="voter id">Voter ID</option>
+        <option value="ration card">Ration Card</option>
+      </select>
+
+  <label for="document_img">Upload Document Image:</label>
+  <input type="file" id="document_img" name="document_img" accept="image/*" required>
+
+
+
+
+      <label for="branch">Branch:</label>
+      <select id="branch" name="branch" required>
+        <option value="ME">Mechanical Engineering</option>
+        <option value="CS">Computer Science</option>
+        <option value="CV">Civil</option>
+      </select>
+
+      <button type="submit">Submit</button>
+    </form>
+    <a class="back-link" href="/">Back</a>
+</div>
+<style>
+  .admission-container {
+    max-width: 400px;
+    margin: 40px auto;
+    padding: 30px 30px 20px 30px;
+    background: #f8f8f8;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+    font-family: 'Segoe UI', Arial, sans-serif;
+    
+  }
+  .admission-container h2 {
+    color: #2b2b2b;
+    margin-bottom: 10px;
+    font-family: 'Times New Roman', Times, serif;
+  }
+  .admission-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .admission-form label {
+    font-weight: 500;
+    margin-bottom: 2px;
+    color: #333;
+  }
+  .admission-form input,
+  .admission-form select {
+    padding: 7px 10px;
+    border: 1px solid #bbb;
+    border-radius: 5px;
+    font-size: 1em;
+    background: #fff;
+    margin-bottom: 8px;
+  }
+  .admission-form button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 0;
+    border-radius: 6px;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background 0.2s;
+  }
+  .admission-form button:hover {
+    background-color: #0056b3;
+  }
+  .back-link {
+    display: inline-block;
+    margin-top: 18px;
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+  .back-link:hover {
+    color: #0056b3;
+    text-decoration: underline;
+  }
+</style>

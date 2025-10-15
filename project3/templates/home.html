@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DSCE</title>
+  <link rel="icon" href="{{ url_for('static', filename='logo.png') }}" type="image/x-icon">
+  <style>
+    /* Background */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background:white;
+    }
+
+    /* Header with logo + text */
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 15px;
+    }
+    .header-text {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 15px 0;
+    }
+    .header-text img {
+      width: 75px;
+      margin-right: 20px;
+    }
+    .header-text h1, .header-text p {
+      margin: 0;
+      font-family: 'Times New Roman', Times, serif;
+    }
+
+    .header img {
+      width: 75px;
+      margin-right: 20px;
+    }
+
+    .header h1 {
+      margin: 0;
+      font-size: 1.8em;
+      font-family: 'Times New Roman', Times, serif;
+    }
+
+    .header p {
+      margin: 2px 0 0;
+      font-size: 1em;
+      color: #222;
+      font-family: 'Times New Roman', Times, serif;
+    }
+
+    /* Navbar */
+    nav {
+      background-color: #333;
+      padding: 10px 0;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: flex-start;
+    }
+
+    nav ul li {
+      margin: 0 20px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #fff;
+      font-size: 16px;
+      transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #ffcc00;
+    }
+
+    /* Image */
+    .content img {
+      width: 300px;
+      margin: 15px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="header-text">
+    <a href="https://www.dsce.edu.in/"><img src="{{ url_for('static', filename='logo.png') }}"></a>
+    <div>
+      <h1>Dayanand Sagar College of Engineering</h1>
+      <p>Near Shavige Malleshwara Hills, Kumarswamy Layout, Bangalore</p>
+    </div>
+  </div>
+
+  <!-- Navigation Bar -->
+  <nav>
+    <ul>
+  <li><a href="/">Home</a></li>
+  <li><a href="/gallery">Gallery</a></li>
+  <li><a href="/results">Results</a></li>
+  <li><a href="/placements">Placements</a></li>
+  <li><a href="/admission">Admission</a></li>
+  <li><a href="/departments">Departments</a></li>
+  <li><a href="/faculties">Faculties</a></li>
+  <li><a href="/ERP_login">ERP_login</a></li>
+    </ul>
+  </nav>
+
+<div class="main-container">
+  <div class="container">
+    <h2>Admissions</h2>
+    <hr>
+    <p>The admission process at DSCE is through CET and COMEDK. The minimum requirement is pass in PUC / CBSE / ISCE /10+2 or equivalent examination with Physics and Mathematics as compulsory subjects and a minimum of 45% marks </p>
+  <button><strong><a href="/admission">Know more</a></strong></button>
+  </div>
+  <div class="container">
+    <h2>About DSCE</h2>
+    <hr>
+    <p>DSCE is an autonomous institute approved by All India Council for Technical Education (AICTE), Govt. of India and affiliated to Visvesvaraya Technological University. It has widest choice of engineering branches ...</p>
+  <button><strong><a href="/results">Know more</a></strong></button>
+  </div>
+  <div class="container">
+    <h2>Principal Message</h2>
+    <hr>
+    <p>It gives me immense pleasure to welcome you all to the creative world of DSCE with an eco-friendly campus coupled with state-of-art infrastructure. Our well-equipped labs, research centres, workshops and libraries hel</p>
+  <button><strong><a href="/principal_msg">Know more</a></strong></button>
+  </div>
+  <div class="container">
+    <h2>Examination Section</h2>
+    <hr>
+    <p>The evaluation process is carried out in two stages. Continuous Internal Evaluation [CIE] during the progress of the semester and Semester End Examination [SEE] conducted at the end of the semester ...</p>
+  <button><strong><a href="/exam">Know more</a></strong></button>
+  </div>
+</div>
+</body>
+</html>
+
+<style>
+    body{
+        background-color: #626161;
+    }
+  .main-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    justify-content: left;
+    margin: 40px auto;
+    max-width: 700px;
+  }
+  .container {
+    max-width: 300px;
+    padding: 20px;
+    background: #2b2b2b;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    text-align: left;
+  }
+  .container h2 {
+    color: #ffcc00;
+    margin: 0 0 10px 0;
+    font-family: 'Times New Roman', Times, serif;
+  }
+  .container p {
+    color: rgb(20, 202, 202);
+    font-family: 'Times New Roman', Times, serif;
+  }
+  .container button {
+    background-color: rgb(255, 0, 0);
+    border: none;
+    padding: 6px 12px;
+    margin-top: 10px;
+    border-radius: 6px;
+  }
+  .container button a {
+    color: #222;
+    text-decoration: none;
+    font-weight: bold;
+    font-style: italic;
+  }
+  .container:hover {
+    background-color: #66895d;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    color: #5600a7;
+}
+.container button :hover {
+    background-color: #d1b3ff;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    color: #5600a7;
+}
+
+</style>

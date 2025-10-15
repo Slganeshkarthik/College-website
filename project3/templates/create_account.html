@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            body {
+                background: #f4f6fa;
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+            }
+            .account-container {
+                max-width: 400px;
+                margin: 40px auto;
+                background: #fff;
+                border-radius: 12px;
+                box-shadow: 0 4px 16px rgba(0,0,0,0.13);
+                padding: 32px 28px 24px 28px;
+            }
+            h1 {
+                text-align: center;
+                color: #0077cc;
+                font-family: 'Times New Roman', Times, serif;
+                margin-bottom: 24px;
+            }
+            form label {
+                font-weight: bold;
+                color: #333;
+                display: block;
+                margin-bottom: 4px;
+                margin-top: 10px;
+            }
+            form input,
+            form select {
+                width: 100%;
+                padding: 8px 10px;
+                border: 1px solid #bbb;
+                border-radius: 6px;
+                font-size: 1em;
+                margin-bottom: 8px;
+                background: #f9f9f9;
+                transition: border 0.2s;
+            }
+            form input:focus,
+            form select:focus {
+                border: 1.5px solid #0077cc;
+                outline: none;
+            }
+            button[type="submit"] {
+                background: #0077cc;
+                color: #fff;
+                border: none;
+                border-radius: 6px;
+                padding: 10px 0;
+                font-size: 1em;
+                font-weight: bold;
+                cursor: pointer;
+                margin-top: 12px;
+                width: 100%;
+                transition: background 0.2s;
+            }
+            button[type="submit"]:hover {
+                background: #005fa3;
+            }
+            .hidden { display: none; }
+            .account-container div[style*="color:red"] {
+                margin-bottom: 16px;
+                font-size: 1em;
+            }
+        </style>
+</head>
+<body>
+        <div class="account-container">
+            <h1>New Account</h1>
+            {% if message %}
+              <div style="color:red; text-align:center; margin-bottom:10px;">{{ message }}</div>
+            {% endif %}
+            <form method="post">
+                <label for="code">code:</label>
+                <input type="text" id="code" name="code" required>
+                <br>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <br>
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+                <br>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+                <br>
+                <label for="DOB">DOB:</label>
+                <input type="date" id="DOB" name="DOB" required>
+                <br>
+                <label for="role">Role:</label>
+                <select id="role" name="role" required onchange="showStudentOptions()">
+                    <option value="student">student</option>
+                    <option value="teacher">teacher</option>
+                </select>
+                <div id="student-options" class="hidden">
+                    <label for="branch">Branch:</label>
+                    <select id="branch" name="branch">
+                        <option value="CSE">CSE</option>
+                        <option value="ECE">ECE</option>
+                        <option value="ME">ME</option>
+                        <option value="CV">CV</option>
+                    </select>
+                    <br>
+                    <label for="Type_of_Admission">Type_of_Admission:</label>
+                    <select id="Type_of_Admission" name="Type_of_Admission">
+                        <option value="Managment">Managment</option>
+                        <option value="CET">CET</option>
+                        <option value="DCET">DCET</option>
+                        <option value="COMEDK">COMEDK</option>
+                    </select>
+                </div>
+                <br>
+                <button type="submit">Submit</button>
+            </form>
+        <script>
+            function showStudentOptions() {
+                var role = document.getElementById('role').value;
+                var studentOptions = document.getElementById('student-options');
+                if (role === 'student') {
+                    studentOptions.classList.remove('hidden');
+                } else {
+                    studentOptions.classList.add('hidden');
+                }
+            }
+            // Initialize on page load
+            window.onload = showStudentOptions;
+        </script>
+
+</body>
+
+</html>

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DSCE</title>
+  <link rel="icon" href="{{ url_for('static', filename='logo.png') }}" type="image/x-icon">
+  <style>
+    /* Background */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background:rgb(78, 77, 77);
+      text-align: center;
+    }
+
+    /* Header with logo + text */
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 15px;
+    }
+    .header-text {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .header img {
+      width: 75px;
+      margin-right: 20px;
+      align-items: center;
+      text-align: center;
+    }
+
+    .header h1 {
+      margin: 0;
+      font-size: 1.8em;
+      font-family: 'Times New Roman', Times, serif;
+      align-items: center;
+      text-align: center;
+    }
+
+    .header p {
+      margin: 2px 0 0;
+      font-size: 1em;
+      color: #222;
+      font-family: 'Times New Roman', Times, serif;
+      align-items: center;
+      text-align: center;
+    }
+
+    /* Navbar */
+    nav {
+      background-color: #333;
+      padding: 10px 0;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: flex-start;
+    }
+
+    nav ul li {
+      margin: 0 20px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #fff;
+      font-size: 16px;
+      transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #ffcc00;
+    }
+
+    /* Image */
+    .content img {
+      width: 300px;
+      margin: 15px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    }
+    
+    .slide {
+      display: none;
+      text-align: center;
+      width: 100%;
+    }
+    .slide img {
+      width: 100%;
+      max-width: 520px;
+      height: auto;
+      max-height: 320px;
+      object-fit: contain;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      background: #fff;
+      margin: 0 auto;
+      display: block;
+      transition: transform 0.2s;
+    }
+    .slide img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="header">
+  <a href="https://www.dsce.edu.in/"><img src="{{ url_for('static', filename='logo.png') }}"></a>
+    <div class="header-text">
+      <h1>Dayanand Sagar College of Engineering</h1>
+      <p>Near Shavige Malleshwara Hills, Kumarswamy Layout, Bangalore</p>
+    </div>
+  </div>
+
+  <!-- Navigation Bar -->
+  <nav>
+    <ul>
+  <li><a href="/">Home</a></li>
+  <li><a href="/gallery">Gallery</a></li>
+  <li><a href="/results">Results</a></li>
+  <li><a href="/placements">Placements</a></li>
+  <li><a href="/admission">Admission</a></li>
+  <li><a href="/departments">Departments</a></li>
+  <li><a href="/faculties">Faculties</a></li>
+  <li><a href="/ERP_login">ERP_login</a></li>
+    </ul>
+  </nav>
+
+
+<h2><strong>Gallery</strong></h2>
+
+<hr>
+
+  <!-- YouTube embed -->
+  <iframe width="560" height="315"
+    src="https://www.youtube.com/embed/EooQPZYcWF4?autoplay=1&mute=1"
+    frameborder="0"
+    allow="autoplay; encrypted-media"
+    allowfullscreen>
+  </iframe>
+<hr><hr>
+<div class="slideshow" id="slideshow" style="position:relative;">
+  <button class="slide-btn prev" onclick="plusSlides(-1)">&#10094;</button>
+  <div class="slide">
+    <img src="{{ url_for('static', filename='image1.png') }}" alt="Image 1">
+  </div>
+  <div class="slide">
+    <img src="{{ url_for('static', filename='image2.png') }}" alt="Image 2">
+  </div>
+  <div class="slide">
+    <img src="{{ url_for('static', filename='image3.png') }}" alt="Image 3">
+  </div>
+  <div class="slide">
+    <img src="{{ url_for('static', filename='image4.png') }}" alt="Image 4">
+  </div>
+  <button class="slide-btn next" onclick="plusSlides(1)">&#10095;</button>
+</div>
+
+<style>
+    h2{
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 35px;
+    }
+    img{
+        image-orientation: 0grad;
+    }
+</style>
+</script>
+<script>
+let slideIndex = 1;
+let slideInterval;
+
+function showSlides(n) {
+  let slides = document.getElementsByClassName("slide");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (let i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  slides[slideIndex-1].style.display = "block";
+}
+
+function plusSlides(n) {
+  clearInterval(slideInterval);
+  showSlides(slideIndex += n);
+  slideInterval = setInterval(() => plusSlides(1), 3000);
+}
+
+function startSlideshow() {
+  showSlides(slideIndex);
+  slideInterval = setInterval(() => plusSlides(1), 3000);
+}
+
+document.getElementById("slideshow").addEventListener("mouseenter", () => {
+  clearInterval(slideInterval);
+});
+document.getElementById("slideshow").addEventListener("mouseleave", () => {
+  startSlideshow();
+});
+
+startSlideshow();
+</script>
+</style>
+  
+</script>
+
+</body>
+</html>

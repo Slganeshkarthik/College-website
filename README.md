@@ -1,6 +1,6 @@
 # College Website
 
-This is a college website project developed using **HTML**, **CSS**, **JavaScript**, **Flask**, and **Python**.  
+This is a college website project developed using **HTML**, **CSS**, **JavaScript**, **Flask**, and **Python`.  
 It is currently **incomplete** and under development.
 
 ## Features

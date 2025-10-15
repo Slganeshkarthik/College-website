@@ -1,0 +1,168 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DSCE</title>
+  <link rel="icon" href="{{ url_for('static', filename='logo.png') }}" type="image/x-icon">
+  <style>
+    /* Background */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background:white;
+    }
+
+    /* Header with logo + text */
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 15px;
+    }
+    .header-text {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 15px 0;
+    }
+    .header-text img {
+      width: 75px;
+      margin-right: 20px;
+    }
+    .header-text h1, .header-text p {
+      margin: 0;
+      font-family: 'Times New Roman', Times, serif;
+    }
+
+    .header img {
+      width: 75px;
+      margin-right: 20px;
+    }
+
+    .header h1 {
+      margin: 0;
+      font-size: 1.8em;
+      font-family: 'Times New Roman', Times, serif;
+    }
+
+    .header p {
+      margin: 2px 0 0;
+      font-size: 1em;
+      color: #222;
+      font-family: 'Times New Roman', Times, serif;
+    }
+
+    /* Navbar */
+    nav {
+      background-color: #333;
+      padding: 10px 0;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: flex-start;
+    }
+
+    nav ul li {
+      margin: 0 20px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #fff;
+      font-size: 16px;
+      transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #ffcc00;
+    }
+
+    /* Image */
+    .content img {
+      width: 300px;
+      margin: 15px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="header-text">
+    <a href="https://www.dsce.edu.in/"><img src="{{ url_for('static', filename='logo.png') }}"></a>
+    <div>
+      <h1>Dayanand Sagar College of Engineering</h1>
+      <p>Near Shavige Malleshwara Hills, Kumarswamy Layout, Bangalore</p>
+    </div>
+  </div>
+
+  <!-- Navigation Bar -->
+  <nav>
+    <ul>
+  <li><a href="/">Home</a></li>
+  <li><a href="/gallery">Gallery</a></li>
+  <li><a href="/results">Results</a></li>
+  <li><a href="/placements">Placements</a></li>
+  <li><a href="/admission">Admission</a></li>
+  <li><a href="/departments">Departments</a></li>
+  <li><a href="/faculties">Faculties</a></li>
+  <li><a href="/ERP_login">ERP_login</a></li>
+    </ul>
+  </nav>
+
+  <div>
+    <h2>Placements</h2>
+    <hr>
+    <br>
+
+    <p1>
+        <li>Dayananda Sagar College of Engineering has an elite placement division to facilitate the placements for all students. The Centre provides pre-placement training in soft skills to all students to enable them to apprise to the modern corporate requirements in association with CIL - Centre for Innovation & Leadership and HR Division.</li>
+        <br>
+        <li>The Placement Division also supports training in CV Writing, Aptitude Assessment, Mock interviews, Group Discussion etc.,
+            Internship opportunities in various companies will be provided for interested UG/PG students.</li>
+        <br>
+        <li>DSCE is committed to provide best talent for corporates.</li>
+        <br>
+        <li>The Placement division works with Corporates to build the overall Development of Students as per industry requirements.</li>
+</p1>
+  </div>
+  <hr>
+<img src="{{ url_for('static', filename='placement.png') }}" alt="placement ">
+<hr>
+<style>
+    body{
+        background-color:gray;
+    }
+  h2{
+    color: rgb(0, 0, 0);
+    padding-left: 50px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 44px;
+}
+  p1{
+    font-family: 'Times New Roman', Times, serif;
+  }
+</style>
+<h3>Recrutment Partners</h3>
+<style>
+    h3{
+        font-size: 30px;
+        color: orange;
+    }
+</style>
+<img src="{{ url_for('static', filename='rec_p.png') }}" alt="rec_p" title="recrutment partners">
+
+
+
+
+
+
+
+
+
